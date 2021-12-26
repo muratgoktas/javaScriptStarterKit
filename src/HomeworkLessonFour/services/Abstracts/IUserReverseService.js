@@ -1,13 +1,13 @@
 export default class IReverseSort {
-    constructor(Users, sortColomn) {
-        let myUsers = Users
-        let mySortColomn = sortColomn
-        if(mySortColomn===undefined){mySortColomn="firstName"}
+    constructor(myUsers, mySortColomn) {
+        let Users = myUsers
+        let sortColomn = mySortColomn
+        if(sortColomn===undefined){sortColomn="firstName"}
         let Reverse = function () {
-            let result = myUsers.sort((myUserA, myUserB) => {
-                if (myUserA[mySortColomn] < myUserB[mySortColomn]) {
+            let result = Users.sort((userA, userB) => {
+                if (userA[sortColomn] < userB[sortColomn]) {
                     return 1;
-                } else if (myUserA[mySortColomn] === myUserB[mySortColomn]) {
+                } else if (userA[sortColomn] === userB[sortColomn]) {
                     return 0;
                 } else {
                     return -1;

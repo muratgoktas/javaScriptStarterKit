@@ -1,10 +1,11 @@
 export default class IUserAddService {
 
-    constructor(personInterface, myUsers) { // Interface
-       try {
+    constructor(myUser, myUsers) { // Interface
+      let user=myUser
+      let Users=myUsers
+        try {
         let add = function () {
-            myUsers.push(personInterface)
-           // alert (name+" Added!")
+            Users.push(user)
         }
          add()
        } catch (error) {

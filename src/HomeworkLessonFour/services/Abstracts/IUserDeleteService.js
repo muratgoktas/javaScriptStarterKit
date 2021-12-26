@@ -1,14 +1,15 @@
 
 export default class IDelete {
-    constructor(id, myUsers) {
-
+    constructor(myEntity, myUsers) {
+        let id=myEntity
+        let Users=myUsers
         let Delete = function () {
 
             try {
 
-                for (const user of myUsers) {
+                for (const user of Users) {
                     if (user.id === id) {
-                        myUsers.splice(myUsers.indexOf(user), 1)
+                        Users.splice(Users.indexOf(user), 1)
                     }
                 }
             

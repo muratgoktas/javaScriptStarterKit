@@ -1,7 +1,7 @@
 import { userDatas } from "../data/userDatas.js"
 import UsersServices from "../services/Concretes/UsersServices.js";
-import Employee from "../models/employee.js";
-import ErrorData from "../models/errorData.js";
+import Employee from "../models/Concretes/employee.js";
+import ErrorData from "../models/Concretes/errorData.js";
 import ElasticLogger from "../crossCuttingConcerns/Concretes/logging/elasticLogger.js";
 import IBaseLogger from "../crossCuttingConcerns/Abstracts/logging/IBaseLogger.js";
 import BaseLogger from "../crossCuttingConcerns/Concretes/logging/baseLogger.js";
@@ -21,7 +21,7 @@ let person = new Employee(15, "Salih", "Güçbilmez", "Sakarya", 57, "Employee",
 
 console.log("-------Add record's id:15 ----")
 userServices.add(person, Employees)
-console.log(person)
+console.log(Employees)
 
 console.log("------Add records. All ------")
 for (const person of userDatas) {
@@ -52,20 +52,79 @@ let myElasticLogger =new ElasticLogger()
 console.log(myElasticLogger.log(entity))
 
 console.log("-------------------regExp Kontrol--------------------")
-let newUser = new Employee(5, "Mustafa", "Kurukafa", "Malatya", 37, "Empl0yee", 120344)
+let newUser = new Employee(0, "Mustafa", "Kurukafa", "Malatya", 37, "Employee", 120344)
+//NAAANAN => IRegExp.js You can look at the IRegExp.js .
+/*let dnaModel ="NAAANAN"
+let counter=0
 
+for (let key in newUser) {
+    if(regExpAll.checkedRegExp(newUser[key])!==dnaModel[counter]){
+        alert(newUser[key])
+        alert(dnaModel[counter])
+        dnaModel =false
+        break
+    }
+    counter++
+//  alert(key + ' => ' + newUser[key]);
+} 
+console.log(regExpAll.checkedRegExpObj(newUser,"NAAANAN"))
+*/
 
-if (regExpAll.checkedRegExp(newUser["id"])==="N"
-&&regExpAll.checkedRegExp(newUser["firtsName"])==="A"
-&&regExpAll.checkedRegExp(newUser["lastName"])==="A"
-&&regExpAll.checkedRegExp(newUser["city"])==="A"
-&&regExpAll.checkedRegExp(newUser["age"])==="N"
-&&regExpAll.checkedRegExp(newUser["type"])==="A"
-&&regExpAll.checkedRegExp(newUser["salary"])==="N")
-{
-    userServices.update(newUser, Employees)
-    console.log(Employees)
-}else{
+if (regExpAll.checkedRegExpObj(newUser)===false){
+    console.log("Hatalı kayıt")
      userServices.add(newUser, ErrorDatas)
      console.log(ErrorDatas)
+}else if(regExpAll.checkedRegExpObj(newUser)===true){
+     userServices.update(newUser, Employees)
+     console.log(Employees)
+}else{
+    console.log("3.seçenek")
 }
+let checkedValidation =new CheckedValuesValidation()
+let mybolean= checkedValidation.CheckedNumberValidation(newUser["id"],1,1000)
+console.log(mybolean)
+let sabolean=checkedValidation.CheckedStringValidation(newUser["firstName"],3,15)
+console.log(sabolean)
+
+function NameSpec(myFirstName) {
+    let name=myFirstName.myName
+    let mini=myFirstName.myMini
+    let maxi=myFirstName.myMaxi
+    let mySpec = function(){
+        console.log(name +"="+mini+"-"+maxi)
+    }
+     mySpec()
+}
+
+class NameSpec2 {
+    constructor(myFirstName) {
+        let name=myFirstName.myName
+        let mini=myFirstName.myMini
+        let maxi=myFirstName.myMaxi
+        let mySpec = function(){
+            console.log(name +"="+mini+"-"+maxi)
+        }
+        mySpec()
+    }
+}
+
+class myNameSpec {
+    constructor(myName, myMini, myMaxi) {
+        this.myName = myName;
+        this.myMini = myMini;
+        this.myMaxi = myMaxi;
+    }
+}
+
+let myFirstNameSpec=new myNameSpec("Murat","1","15")
+NameSpec(myFirstNameSpec)
+NameSpec2(myFirstNameSpec)
+
+
+/*or
+console.log(Object.keys(newUser))  */
+//Object.keys(newUser).forEach(key => { console.log(key, newUser[key]) })
+
+
+
+

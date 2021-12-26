@@ -53,7 +53,7 @@ someCustomer.sendEmail()
 //Abstract classes end
 //Interface Class
 function sendEmail(personInterface) { // Interface
-    let to = personInterface.email
+    let to = personInterface.eMail
     let name =personInterface.name
     let send = function () {
         alert("Mail sent to :"+name+"/"+to)

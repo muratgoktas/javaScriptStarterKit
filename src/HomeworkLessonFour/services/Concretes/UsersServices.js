@@ -10,20 +10,21 @@ import IReverseSort from "../Abstracts/IUserReverseService.js"
 export default class UserServices extends IService {
     constructor() {
         super()
+        
     }
     
     add(myUser, myUsers) {
-        IUserAddService(myUser, myUsers);
-
+        IUserAddService( myUser,myUsers);
     }
+
     update(myUser, myUsers) {
         IUpdate(myUser, myUsers)
     }
-    delete(myId, myUsers) {
-        IDelete(myId, myUsers)
+    delete(myEntity, myUsers) {
+        IDelete(myEntity, myUsers)
     }
-    find(myId, myUsers,mySelectColumn) {
-        return IFind(myId, myUsers,mySelectColumn);
+    find(myEntity, myUsers,mySelectColumn) {
+        return IFind(myEntity, myUsers,mySelectColumn);
     }
 
     sort(myUsers, mySortColomn) {

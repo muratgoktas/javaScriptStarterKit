@@ -10,7 +10,7 @@ export default class IFind {
                 let status = false
                 let user
                 for (user of Users) {
-                    // filter ile bir türlü yapamadım. Bende klasik yçntemle yaptım.
+                    // filter ile bir türlü yapamadım. Bende klasik yöntemle yaptım.
                     if (user[column] === entity) {
                         status = true
                         return user

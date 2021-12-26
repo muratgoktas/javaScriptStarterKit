@@ -1,4 +1,4 @@
-import IEntity from "./IEntity.js"
+import IEntity from "../Abstracts/IEntity.js"
 
 export default class UserBase extends IEntity {
     constructor(id, firstName, lastName, city, age,type) {
@@ -9,7 +9,6 @@ export default class UserBase extends IEntity {
             this.city = city
             this.age = age
             this.type=type
-
 
     }
 }
