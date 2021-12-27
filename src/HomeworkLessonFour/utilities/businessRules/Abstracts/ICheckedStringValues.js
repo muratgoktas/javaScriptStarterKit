@@ -7,11 +7,13 @@ export default class ICheckedStringValues {
         if (mini === undefined) { mini = 1 }
         if (maxi === undefined) { maxi = 999999 }
 
-        let checkedStringValue = function () {
-            if ( stringValue.length > mini && stringValue.length < maxi) {
-                return true
-            } else {
-                return false
+        class checkedStringValue {
+            constructor() {
+                if (stringValue.length > mini && stringValue.length < maxi) {
+                    return true
+                } else {
+                    return false
+                }
             }
         }
         return checkedStringValue()

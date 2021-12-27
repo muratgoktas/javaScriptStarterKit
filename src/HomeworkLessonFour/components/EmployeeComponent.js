@@ -91,7 +91,7 @@ function NameSpec(myFirstName) {
     let mini=myFirstName.myMini
     let maxi=myFirstName.myMaxi
     let mySpec = function(){
-        console.log(name +"="+mini+"-"+maxi)
+        console.log("function : "+name +"="+mini+"-"+maxi)
     }
      mySpec()
 }
@@ -101,10 +101,15 @@ class NameSpec2 {
         let name=myFirstName.myName
         let mini=myFirstName.myMini
         let maxi=myFirstName.myMaxi
-        let mySpec = function(){
-            console.log(name +"="+mini+"-"+maxi)
+      /*  let mySpec = function(){
+            
+        }*/
+        class mySpec2{
+            constructor(){
+                console.log(name +"="+mini+"-"+maxi)
+            }
         }
-        mySpec()
+         mySpec2()
     }
 }
 
@@ -119,6 +124,7 @@ class myNameSpec {
 let myFirstNameSpec=new myNameSpec("Murat","1","15")
 NameSpec(myFirstNameSpec)
 NameSpec2(myFirstNameSpec)
+
 
 
 /*or
