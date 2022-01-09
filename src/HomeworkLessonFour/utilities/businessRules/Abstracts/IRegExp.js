@@ -6,8 +6,8 @@ export default class IRegExp {
         let patternNumeric = (/[0-9]/igm);
         let patternAlphanumeric = (/[a-zA-ZıİşŞğĞüÜöÖçÇ]/igm)
         let patternOtherSymbol = (/[^ıİşŞğĞüÜöÖçÇ\w\s]/igm)
-        class regExp {
-            constructor() {
+        let regExp =function(){
+            
                 if (patternAlphanumeric.test(value)) {
                     result = ("A")
                 }
@@ -20,7 +20,7 @@ export default class IRegExp {
 
                 return result
             }
-        }
+        
         return regExp()
     }
 }

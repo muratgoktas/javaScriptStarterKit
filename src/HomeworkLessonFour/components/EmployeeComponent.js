@@ -1,3 +1,4 @@
+
 import { userDatas } from "../data/userDatas.js"
 import UsersServices from "../services/Concretes/UsersServices.js";
 import Employee from "../models/Concretes/employee.js";
@@ -85,8 +86,17 @@ let mybolean= checkedValidation.CheckedNumberValidation(newUser["id"],1,1000)
 console.log(mybolean)
 let sabolean=checkedValidation.CheckedStringValidation(newUser["firstName"],3,15)
 console.log(sabolean)
+console.log("----------------Object Checked ---------------")
+let minis=[0,1,1,1,1,1,4500]
+let maxis=[99999,15,15,15,140,10,4500]
+let myObjectExam=new Employee(13, "Risalet", "Ak", "Erzurum", 83, "Employee", 555544)
 
-function NameSpec(myFirstName) {
+let objChecked=checkedValidation.CheckedObjectValidation(myObjectExam,"NAAANAN",minis,maxis)
+console.log(objChecked)
+
+
+console.log("-----------------------Function ile Interface Example ---------- ")
+ function NameSpec(myFirstName) {
     let name=myFirstName.myName
     let mini=myFirstName.myMini
     let maxi=myFirstName.myMaxi
@@ -124,7 +134,6 @@ class myNameSpec {
 let myFirstNameSpec=new myNameSpec("Murat","1","15")
 NameSpec(myFirstNameSpec)
 NameSpec2(myFirstNameSpec)
-
 
 
 /*or

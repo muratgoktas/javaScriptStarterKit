@@ -26,7 +26,7 @@ let huseyin = new Customer("12345654")
 alert(huseyin.firstName+" "+huseyin.lastName+" "+huseyin.creditCardNumber)
 // Inheritance End
 // Abstract Classes
-let User  ={ //User newlenemz Abstract bir classtır
+let User  ={ //User newlenemez Abstract bir classtır
     name: "None", //fake tanımlama
     email:"None",
     sendEmail:function () {

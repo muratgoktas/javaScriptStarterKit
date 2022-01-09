@@ -313,6 +313,30 @@ if((/[0-9]/igm).test(mytext)){
 if((/[\W\s]/igm).test(mytext)){
      console.log("if noktalama :"+noktalama)
 }
+
+console.log("--------------Generic Class an function------------------")
+class BaseClass {
+    hello = function () {
+        console.log('hello!');
+    }
+}
+
+function GenericClass(T, Base) {
+    return class extends Base {
+        field = new T();
+    }
+}
+
+class DerivedFromGeneric extends GenericClass(String, BaseClass) {
+    greet = function() {
+        this.hello();
+        console.log('greetings ', this.field);
+    }
+}
+
+let i = new DerivedFromGeneric();
+console.log("----------Generic Function-------------")
+
 /*console.log("------------Special IRegExp---------")
 
 let sonuc = myExp.checkedRegExp(mytext)

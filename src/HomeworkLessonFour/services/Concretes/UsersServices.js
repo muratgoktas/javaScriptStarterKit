@@ -13,7 +13,7 @@ export default class UserServices extends IService {
         
     }
     
-    add(myUser, myUsers) {
+    add( myUser, myUsers) {
         IUserAddService( myUser,myUsers);
     }
 
